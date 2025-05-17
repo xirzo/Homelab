@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     networks:
-      - my_net
+      - wg_network
     volumes:
       - ./wireguard_config:/config/wg_confs
     ports:
@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
 networks:
-  my_net:
+  wg_network:
+    name: wg_network
     driver: bridge
-    name: wireguard_my_net
-
+    external: true
