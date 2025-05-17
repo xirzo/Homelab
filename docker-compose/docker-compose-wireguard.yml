@@ -8,7 +8,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Etc/UTC
-    # network_mode: "host"
     networks:
       - my_net
     volumes:
@@ -20,4 +19,5 @@ services:
 networks:
   my_net:
     driver: bridge
+    name: wireguard_my_net
 
