@@ -15,6 +15,8 @@ services:
     ports:
       - "51820:51820/udp"
     restart: unless-stopped
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
 
 networks:
   wg_network:

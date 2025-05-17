@@ -8,3 +8,5 @@ docker network create wg_network
 
 bash ./create_docker_app.sh "wireguard" "../docker-compose/docker-compose-wireguard.yml"
 bash ./create_docker_app.sh "portainer" "../docker-compose/docker-compose-portainer.yml"
+
+source ./setup-wg-routes.sh
