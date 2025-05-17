@@ -4,7 +4,13 @@ The idea of this particular repo is to hold a bootstrap script for my homelab, w
 
 ## Install
 
-- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into *docker-compose/wireguard-config/wg_confs/wg0.conf*
+- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into */srv/wireguard/wireguard-config/wg0.conf* (this works for any volume with relative path, it should be put into **/srv/{PROJECT_NAME}**)
+
+- Make script executable and run it
+
+```bash
+sudo chmod +x scripts/main.sh && sudo ./main.sh
+```
 
 ## Enabled systemd services
 
