@@ -34,4 +34,8 @@ sh -c "iptables-save > /etc/iptables/iptables.rules"
 
 systemctl enable iptables.service
 
+echo "Starting systemd-resolved"
+systemctl enable systemd-resolved.service
+systemctl start systemd-resolved.service
+
 echo "Setup completed successfully"
