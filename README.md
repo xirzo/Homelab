@@ -4,7 +4,7 @@ The idea of this particular repo is to hold a bootstrap script for my homelab, w
 
 ## Install
 
-- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into **Homelab project directory** on your home server.
+- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into **{HOMELAB_PROJECT_NAME}/scripts** directory on your home server.
 
 Note, that your server **wg0.conf** should allow *docker default bridge* (172.17.0.0/16)
 
@@ -19,6 +19,7 @@ ListenPort = 51820
 [Peer]
 PublicKey = <KEY>
 PresharedKey = <KEY>
+# Allowd docker default bridge
 AllowedIPs = 10.7.0.2/32, 172.17.0.0/16
 ```
 
@@ -51,7 +52,6 @@ sudo chmod +x scripts/main.sh && sudo ./main.sh
 
 ## Installed apps
 
-- nginx reverse proxy
 - portainer
 - nextcloud
 - jellyfin
