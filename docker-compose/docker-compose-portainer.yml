@@ -8,8 +8,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
     networks:
-      - wg_network
+    - vps-network
     restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
 
   portainer:
     image: portainer/portainer-ce
@@ -21,13 +23,15 @@ services:
     volumes:
       - portainer_data:/data
     networks:
-      - wg_network
+      - vps-network
     depends_on:
       - agent
     restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
 
 networks:
-  wg_network:
+  vps-network:
     external: true
 
 volumes:

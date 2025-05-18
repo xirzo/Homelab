@@ -4,7 +4,39 @@ The idea of this particular repo is to hold a bootstrap script for my homelab, w
 
 ## Install
 
-- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into */srv/wireguard/wireguard-config/wg0.conf* (this works for any volume with relative path, it should be put into **/srv/{PROJECT_NAME}**)
+- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into **Homelab project directory** on your home server.
+
+Note, that your server **wg0.conf** should allow *docker default bridge* (172.17.0.0/16)
+
+**Server wg0.conf example:**
+
+```
+[Interface]
+Address = 10.7.0.1/24
+PrivateKey = <KEY>
+ListenPort = 51820
+
+[Peer]
+PublicKey = <KEY>
+PresharedKey = <KEY>
+AllowedIPs = 10.7.0.2/32, 172.17.0.0/16
+```
+
+**Client wg0.conf example:**
+
+```
+[Interface]
+Address = 10.7.0.2/24
+DNS = 77.88.8.8, 8.8.4.4
+PrivateKey = <KEY>
+
+[Peer]
+PublicKey = <KEY>
+PresharedKey = <KEY>
+AllowedIPs = 10.7.0.1/32
+Endpoint = <YOUR-SERVER-IP-OR-DOMAIN>:51820
+PersistentKeepalive = 25
+```
 
 - Make script executable and run it
 
@@ -37,3 +69,5 @@ sudo chmod +x scripts/main.sh && sudo ./main.sh
 - docker
 - docker-compose
 - terminus-font
+- wireguard-tools
+- resolvconf
