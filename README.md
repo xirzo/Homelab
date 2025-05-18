@@ -56,7 +56,6 @@ You may change docker-compose files as you wish, but do not remove **vps-network
 Create new docker-compose-<name>.yml file in docker-compose directory and then add such line to the **main.sh**. Note that in order to use WG network you should add **vps-network** to your docker-compose service.
 
 ```
-
 bash ./create_docker_app.sh "<name>" "../docker-compose/docker-compose-<name>.yml"
 ```
 
@@ -73,7 +72,7 @@ bash ./create_docker_app.sh "<name>" "../docker-compose/docker-compose-<name>.ym
 
 ### Used ports
 
-- portainer (10000, 9000)
+- portainer (12443)
 - nextcloud (90, 9080, 9443)
 
 ## List of packages installed

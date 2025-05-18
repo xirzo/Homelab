@@ -1,34 +1,15 @@
 services:
-  agent:
-    image: portainer/agent
-    container_name: portainer_agent
-    environment:
-      AGENT_CLUSTER_ADDR: agent
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /var/lib/docker/volumes:/var/lib/docker/volumes
-    networks:
-    - vps-network
-    restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
-
   portainer:
     image: portainer/portainer-ce
     container_name: portainer
-    command: -H tcp://agent:9001 --tlsskipverify
     ports:
-      - "10000:9000"
-      - "9000:8000"
+      - "12443:9443"
     volumes:
       - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - vps-network
-    depends_on:
-      - agent
     restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
 
 networks:
   vps-network:
