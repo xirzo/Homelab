@@ -45,6 +45,8 @@ PersistentKeepalive = 25
 sudo chmod +x scripts/main.sh && sudo ./main.sh
 ```
 
+Note: this is **start** script for homelab, so it needs to be used on every start of the server. You may create a systemd service for that.
+
 ## Configuration
 
 You may change docker-compose files as you wish, but do not remove **vps-network** from networks property as it is needed for forwarding ports to your VPS.
