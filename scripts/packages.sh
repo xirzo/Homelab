@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-packages=(vim git openssl docker docker-compose terminus-font wireguard-tools resolvconf)
+packages=(vim git openssh docker docker-compose terminus-font wireguard-tools resolvconf)
 
 echo "Updating pacman"
 
