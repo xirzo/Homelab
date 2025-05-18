@@ -45,6 +45,10 @@ PersistentKeepalive = 25
 sudo chmod +x scripts/main.sh && sudo ./main.sh
 ```
 
+## Configuration
+
+You may change docker-compose files as you wish, but do not remove **vps-network** from networks property as it is needed for forwarding ports to your VPS.
+
 ## Enabled systemd services
 
 - sshd
