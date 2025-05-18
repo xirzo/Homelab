@@ -49,6 +49,15 @@ sudo chmod +x scripts/main.sh && sudo ./main.sh
 
 You may change docker-compose files as you wish, but do not remove **vps-network** from networks property as it is needed for forwarding ports to your VPS.
 
+### Adding new docker-compose app
+
+Create new docker-compose-<name>.yml file in docker-compose directory and then add such line to the **main.sh**. Note that in order to use WG network you should add **vps-network** to your docker-compose service.
+
+```
+
+bash ./create_docker_app.sh "<name>" "../docker-compose/docker-compose-<name>.yml"
+```
+
 ## Enabled systemd services
 
 - sshd
