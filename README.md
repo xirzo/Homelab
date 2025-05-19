@@ -4,24 +4,13 @@ The idea of this particular repo is to hold a bootstrap script for my homelab, w
 
 ## Install
 
-- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into **{HOMELAB_PROJECT_NAME}/scripts** directory on your home server.
-
-Note, that your server **wg0.conf** should allow *docker default bridge* (172.17.0.0/16)
-
-**Server wg0.conf example:**
+- Clone repo on your home server and get into scripts directory
 
 ```
-[Interface]
-Address = 10.7.0.1/24
-PrivateKey = <KEY>
-ListenPort = 51820
-
-[Peer]
-PublicKey = <KEY>
-PresharedKey = <KEY>
-# Allowd docker default bridge
-AllowedIPs = 10.7.0.2/32, 172.17.0.0/16
+git clone https://github.com/xirzo/homelab && cd homelab/scripts
 ```
+
+- Install **wireguard** on your **VPS** and put the client config with the name **wg0.conf** into **Homelab** directory on your home server.
 
 **Client wg0.conf example:**
 
@@ -39,13 +28,13 @@ Endpoint = <YOUR-SERVER-IP-OR-DOMAIN>:51820
 PersistentKeepalive = 25
 ```
 
+*Now you should have wg0.conf in `homelab` directory*
+
 - Make script executable and run it
 
 ```bash
 sudo chmod +x scripts/main.sh && sudo ./main.sh
 ```
-
-Note: this is **start** script for homelab, so it needs to be used on every start of the server. You may create a systemd service for that.
 
 ## Configuration
 
