@@ -58,6 +58,39 @@ You may just use create_docker_app.sh script or use portainer
 ./create_docker_app.sh "<name>" "docker-compose-<name>.yml"
 ```
 
+### Setting up Nextcloud AIO
+
+#### Openning Nextcloud in browser
+
+Forward port from server to your machine (this command must be executed on your machine, not server nor VPS)
+
+```
+ssh -L 8181:localhost:8080 server
+```
+
+Then open your browser at `localhost:8181`
+
+#### Nginx Proxy Manager
+
+Configure NPM as such and insert domain that you chose on Nextcloud page when it asks so.
+
+Note: If you`ve lost your Nextcloud passcode obtain it with this command (use it on server):
+
+```
+sudo docker exec nextcloud-aio-mastercontainer grep password /mnt/docker-aio-config/data/configuration.json
+```
+
+![image](https://github.com/user-attachments/assets/adb06c74-124e-42bb-9b30-f452e0afb32d)
+![image](https://github.com/user-attachments/assets/05e24410-ee12-443c-a470-569f9ce07a1a)
+![image](https://github.com/user-attachments/assets/8f265120-d0bf-4e20-ad96-9bd8b9c26145)
+![image](https://github.com/user-attachments/assets/9d5e6199-4c3a-4b80-a854-948ad3762cc0)
+
+```
+client_body_buffer_size 512k;
+proxy_read_timeout 86400s;
+client_max_body_size 0;
+```
+
 ## Enabled systemd services
 
 - sshd
