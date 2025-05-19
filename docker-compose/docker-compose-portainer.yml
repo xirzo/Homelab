@@ -7,13 +7,7 @@ services:
     volumes:
       - portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
-    networks:
-      - vps-network
     restart: unless-stopped
-
-networks:
-  vps-network:
-    external: true
 
 volumes:
   portainer_data:

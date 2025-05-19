@@ -4,7 +4,7 @@ The idea of this particular repo is to hold a bootstrap script for my homelab, w
 
 ## Install
 
-- Clone repo on your home server and get into scripts directory
+- Clone repo on your home server and get into scripts directory (you should have NetworkManager installed on your machine, you may install it via **archinstall** when setting up your machine)
 
 ```
 git clone https://github.com/xirzo/homelab && cd homelab/scripts
