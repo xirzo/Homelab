@@ -38,6 +38,9 @@ sudo chmod +x scripts/main.sh && sudo ./main.sh
 
 ## Configuration
 
+> [!NOTE]  
+> When adding new app into **NPM** set **wg0** ip address, not container name as host
+
 You may change docker-compose files as you wish, but do not remove **vps-network** from networks property as it is needed for forwarding ports to your VPS.
 
 ### Adding new docker-compose app
